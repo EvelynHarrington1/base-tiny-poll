@@ -45,16 +45,49 @@ function pickOkxProvider(window?: unknown): WalletProvider | undefined {
 function pickMetaMaskProvider(window?: unknown): WalletProvider | undefined {
   return getInjectedProviders(window).find((candidate) => {
     const provider = candidate as MultiInjectedProvider & {
-      _metamask?: unknown;
       isBraveWallet?: boolean;
+      isApexWallet?: boolean;
+      isAvalanche?: boolean;
+      isBitKeep?: boolean;
+      isBlockWallet?: boolean;
+      isKuCoinWallet?: boolean;
+      isMathWallet?: boolean;
+      isOneInchAndroidWallet?: boolean;
+      isOneInchIOSWallet?: boolean;
+      isOpera?: boolean;
+      isPhantom?: boolean;
+      isPortal?: boolean;
+      isRabby?: boolean;
+      isTokenPocket?: boolean;
+      isTokenary?: boolean;
+      isUniswapWallet?: boolean;
+      isZerion?: boolean;
     };
+
+    const looksLikeAnotherWallet =
+      provider.isOkxWallet ||
+      provider.isOKExWallet ||
+      provider.isBraveWallet ||
+      provider.isApexWallet ||
+      provider.isAvalanche ||
+      provider.isBitKeep ||
+      provider.isBlockWallet ||
+      provider.isKuCoinWallet ||
+      provider.isMathWallet ||
+      provider.isOneInchAndroidWallet ||
+      provider.isOneInchIOSWallet ||
+      provider.isOpera ||
+      provider.isPhantom ||
+      provider.isPortal ||
+      provider.isRabby ||
+      provider.isTokenPocket ||
+      provider.isTokenary ||
+      provider.isUniswapWallet ||
+      provider.isZerion;
 
     return (
       provider.isMetaMask &&
-      !provider.isOkxWallet &&
-      !provider.isOKExWallet &&
-      !provider.isBraveWallet &&
-      Boolean(provider._metamask)
+      !looksLikeAnotherWallet
     );
   });
 }
