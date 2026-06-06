@@ -2,6 +2,7 @@
 
 import { ChevronDown, LogOut, Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
+import type { BaseError } from "wagmi";
 import { base } from "wagmi/chains";
 import { useAccount, useConnect, useDisconnect, useSwitchChain } from "wagmi";
 import { cx, shortAddress } from "@/lib/ui";
@@ -14,10 +15,11 @@ const walletTargets = [
 
 export function WalletMenu() {
   const { address, chainId, isConnected } = useAccount();
-  const { connectors, connect, isPending } = useConnect();
+  const { connectors, connectAsync, error: connectError, isPending } = useConnect();
   const { disconnect } = useDisconnect();
   const { switchChain, isPending: isSwitching } = useSwitchChain();
   const [open, setOpen] = useState(false);
+  const [localError, setLocalError] = useState<string>();
 
   const walletOptions = useMemo(
     () =>
@@ -29,6 +31,33 @@ export function WalletMenu() {
   );
 
   const wrongNetwork = isConnected && chainId !== base.id;
+  const errorMessage =
+    localError ??
+    (connectError
+      ? ((connectError as BaseError).shortMessage ?? connectError.message)
+      : undefined);
+
+  async function connectWallet(connector: (typeof connectors)[number] | undefined) {
+    if (!connector) {
+      setLocalError("Wallet connector is not available in this browser.");
+      return;
+    }
+
+    try {
+      setLocalError(undefined);
+      const provider = await connector.getProvider().catch(() => undefined);
+      if (!provider) {
+        setLocalError(`${connector.name} is not detected. Install or unlock the wallet first.`);
+        return;
+      }
+
+      await connectAsync({ connector, chainId: base.id });
+      setOpen(false);
+    } catch (error) {
+      const wagmiError = error as BaseError;
+      setLocalError(wagmiError.shortMessage ?? wagmiError.message ?? "Wallet connection failed.");
+    }
+  }
 
   return (
     <div className="relative">
@@ -61,19 +90,21 @@ export function WalletMenu() {
               key={label}
               type="button"
               disabled={!connector || isPending}
-              onClick={() => {
-                if (!connector) return;
-                connect({ connector, chainId: base.id });
-                setOpen(false);
-              }}
+              onClick={() => void connectWallet(connector)}
               className="flex w-full items-center justify-between border border-transparent px-3 py-2 text-left text-sm text-slate-100 transition hover:border-cyan-300/35 hover:bg-cyan-300/8 disabled:text-slate-500"
             >
               <span>{label}</span>
               <span className="text-xs uppercase text-cyan-200/75">
-                {connector ? "ready" : "missing"}
+                {isPending ? "wait" : connector ? "select" : "missing"}
               </span>
             </button>
           ))}
+
+          {errorMessage ? (
+            <div className="mt-2 border border-orange-300/40 bg-orange-500/10 px-3 py-2 text-xs leading-relaxed text-orange-100">
+              {errorMessage}
+            </div>
+          ) : null}
 
           {isConnected ? (
             <button
