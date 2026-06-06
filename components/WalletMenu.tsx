@@ -8,6 +8,7 @@ import { useAccount, useConnect, useDisconnect, useSwitchChain } from "wagmi";
 import { cx, shortAddress } from "@/lib/ui";
 
 const walletTargets = [
+  { label: "Base App Wallet", connectorName: "Injected" },
   { label: "Coinbase Wallet", connectorName: "Coinbase Wallet" },
   { label: "MetaMask", connectorName: "MetaMask" },
   { label: "OKX", connectorName: "OKX" },

@@ -23,6 +23,7 @@ export const config = createConfig({
       appName: "Base Tiny Poll",
       preference: "all",
     }),
+    injected(),
     injected({ target: "metaMask" }),
     injected({
       target() {

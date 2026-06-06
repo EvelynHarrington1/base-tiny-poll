@@ -17,7 +17,8 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
-import { baseTinyPollAbi, pollContractAddress, pollOptions } from "@/lib/contracts";
+import { baseTinyPollAbi } from "@/lib/abi";
+import { pollContractAddress, pollOptions } from "@/lib/contracts";
 import { DATA_SUFFIX } from "@/lib/wagmi";
 import { cx, formatCount, shortAddress, txUrl } from "@/lib/ui";
 import { WalletMenu } from "@/components/WalletMenu";
@@ -100,8 +101,11 @@ export default function Home() {
   } = useWriteContract();
 
   const {
+    data: receipt,
     isLoading: isConfirming,
+    isError: isReceiptError,
     isSuccess: isConfirmed,
+    error: receiptError,
   } = useWaitForTransactionReceipt({
     hash,
   });
@@ -142,9 +146,23 @@ export default function Home() {
 
   const errorMessage = writeError
     ? ((writeError as BaseError).shortMessage ?? writeError.message)
+    : receiptError
+      ? ((receiptError as BaseError).shortMessage ?? receiptError.message)
     : !contractReady
       ? "Set NEXT_PUBLIC_POLL_CONTRACT_ADDRESS before casting votes."
       : undefined;
+  const transactionReverted = receipt?.status === "reverted";
+  const transactionStatus = writeError
+    ? "Failed before submission"
+    : isReceiptError || transactionReverted
+      ? "Failed onchain"
+    : isConfirmed
+      ? "Success"
+        : isConfirming
+          ? "Pending on Base"
+          : hash
+            ? "Submitted"
+            : "Idle";
 
   function castVote() {
     if (!pollContractAddress) return;
@@ -279,6 +297,20 @@ export default function Home() {
               <div className="relative z-10">
                 <p className="text-xs uppercase tracking-[0.16em] text-cyan-200/70">
                   Last Transaction
+                </p>
+                <p
+                  className={cx(
+                    "mt-2 inline-flex border px-2 py-1 text-xs uppercase tracking-[0.12em]",
+                    transactionStatus === "Success" &&
+                      "border-cyan-300/45 bg-cyan-300/10 text-cyan-100",
+                    transactionStatus.includes("Failed") &&
+                      "border-orange-300/45 bg-orange-500/10 text-orange-100",
+                    !transactionStatus.includes("Failed") &&
+                      transactionStatus !== "Success" &&
+                      "border-white/12 bg-white/[0.03] text-slate-300",
+                  )}
+                >
+                  {transactionStatus}
                 </p>
                 {lastHash ? (
                   <a
