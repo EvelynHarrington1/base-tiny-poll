@@ -24,12 +24,13 @@ Copy `.env.example` to `.env.local` for local development and set:
 
 ```bash
 NEXT_PUBLIC_POLL_CONTRACT_ADDRESS=0x...
-NEXT_PUBLIC_BASE_BUILDER_CODE=0x...
+NEXT_PUBLIC_BASE_BUILDER_CODE=bc_j6yfi83r
+NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX=0x...
 ```
 
 The Base Verify token is hardcoded into `app/layout.tsx` as `base:app_id` for offchain attribution. Replace the placeholder before verification.
 
-`NEXT_PUBLIC_BASE_BUILDER_CODE` is used as the ERC-8021 onchain `dataSuffix` in the Wagmi config and explicitly on every `writeContract` call. Leave it as `0x` for the first deployment if the builder code is not issued yet, then set the encoded suffix and redeploy.
+`NEXT_PUBLIC_BASE_BUILDER_CODE` stores the readable Base Builder Code. `NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX` is the ERC-8021 encoded suffix used in the Wagmi config and explicitly on every `writeContract` call.
 
 ## Contract
 

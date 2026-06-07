@@ -92,11 +92,19 @@ function pickMetaMaskProvider(window?: unknown): WalletProvider | undefined {
   });
 }
 
+export const BASE_BUILDER_CODE =
+  process.env.NEXT_PUBLIC_BASE_BUILDER_CODE ?? "bc_j6yfi83r";
+
+const defaultDataSuffix =
+  "0x62635f6a367966693833720b0080218021802180218021802180218021";
+const configuredDataSuffix =
+  process.env.NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX ??
+  process.env.NEXT_PUBLIC_BASE_BUILDER_ENCODED_STRING;
+
 export const DATA_SUFFIX =
-  process.env.NEXT_PUBLIC_BASE_BUILDER_CODE &&
-  process.env.NEXT_PUBLIC_BASE_BUILDER_CODE !== "replace-with-your-builder-code"
-    ? (process.env.NEXT_PUBLIC_BASE_BUILDER_CODE as `0x${string}`)
-    : "0x";
+  configuredDataSuffix && configuredDataSuffix !== "replace-with-your-encoded-string"
+    ? (configuredDataSuffix as `0x${string}`)
+    : defaultDataSuffix;
 
 export const config = createConfig({
   chains: [base],
