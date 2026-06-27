@@ -87,3 +87,14 @@ The poll contract is intentionally small and focused.
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
+
+contract BaseTinyPoll {
+    mapping(address => uint8) public latestVote;
+    mapping(address => uint256) public userVotes;
+    uint256 public buildMoreVotes;
+    uint256 public shipFasterVotes;
+    uint256 public totalVotes;
+
+    event VoteCast(address indexed user, uint8 vote, uint256 userVotes, uint256 totalVotes);
+
+    function castVote(uint8 vote) external {
