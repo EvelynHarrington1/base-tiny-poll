@@ -189,3 +189,13 @@ npm run build
 ## Scripts
 
 Common project commands:
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+## License
+
+No license information was provided in the original project README.
