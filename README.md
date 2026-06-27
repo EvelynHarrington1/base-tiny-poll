@@ -178,3 +178,14 @@ npm run build
 6. View the updated poll totals in the app.
 
 ## Project Notes
+
+- The app is designed for Base.
+- Voting is not limited to one vote per user.
+- The latest vote for each user is stored separately from the total number of votes they have cast.
+- The contract emits a `VoteCast` event whenever a vote is recorded.
+- The ERC-8021 encoded suffix is included in the Wagmi configuration and explicit contract writes.
+- Replace placeholder configuration values before using the app outside local development.
+
+## Scripts
+
+Common project commands:
