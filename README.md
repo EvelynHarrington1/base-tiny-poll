@@ -38,3 +38,12 @@ The poll contract stores:
 - Next.js App Router
 - TypeScript
 - Wagmi
+- Viem
+- Tailwind CSS
+
+## Supported Wallet Options
+
+The app uses only the following Wagmi connectors:
+
+- `coinbaseWallet`
+- `injected`
