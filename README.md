@@ -28,3 +28,13 @@ The poll contract stores:
 - Two poll choices: `Build More` and `Ship Faster`
 - Unlimited voting per user
 - Wallet connection through selected Wagmi connectors
+- Readable vote totals from the contract
+- Simple, lightweight UI
+- TypeScript-based Next.js App Router project
+- Tailwind CSS styling
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Wagmi
