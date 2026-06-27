@@ -139,3 +139,13 @@ cd base-tiny-poll
 Install dependencies:
 
 ```bash
+npm install
+```
+
+Create your local environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+Update `.env.local` with the required contract and Base Builder values.
