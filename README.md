@@ -7,3 +7,14 @@ The app lets users connect a supported wallet, choose between `Build More` and `
 ## Repository
 
 https://github.com/EvelynHarrington1/base-tiny-poll.git
+
+## Overview
+
+BaseTinyPoll provides a minimal example of a Base-focused polling experience.
+
+The frontend is built with Next.js and TypeScript, styled with Tailwind CSS, and connected to the blockchain through Wagmi and Viem.
+
+The poll contract stores:
+
+- Each user's latest vote
+- Each user's total number of votes
