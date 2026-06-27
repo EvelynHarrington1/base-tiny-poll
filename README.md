@@ -169,3 +169,12 @@ npm run build
 ```
 
 ## Usage
+
+1. Start the app locally or open the deployed app.
+2. Connect one of the supported wallets.
+3. Select either `Build More` or `Ship Faster`.
+4. Confirm the transaction in your wallet.
+5. Wait for the vote to be recorded onchain.
+6. View the updated poll totals in the app.
+
+## Project Notes
