@@ -18,3 +18,13 @@ The poll contract stores:
 
 - Each user's latest vote
 - Each user's total number of votes
+- Total votes for `Build More`
+- Total votes for `Ship Faster`
+- Overall total votes
+
+## Features
+
+- Onchain voting on Base
+- Two poll choices: `Build More` and `Ship Faster`
+- Unlimited voting per user
+- Wallet connection through selected Wagmi connectors
