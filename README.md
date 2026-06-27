@@ -149,3 +149,13 @@ cp .env.example .env.local
 ```
 
 Update `.env.local` with the required contract and Base Builder values.
+
+## Development
+
+Start the local development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in your terminal to view the app.
