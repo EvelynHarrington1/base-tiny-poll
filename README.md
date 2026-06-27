@@ -47,3 +47,13 @@ The app uses only the following Wagmi connectors:
 
 - `coinbaseWallet`
 - `injected`
+
+The wallet menu exposes:
+
+- Coinbase Wallet
+- MetaMask
+- OKX
+
+## Environment Variables
+
+For local development, copy the example environment file:
