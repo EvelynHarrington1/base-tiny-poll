@@ -119,3 +119,12 @@ contract BaseTinyPoll {
 ```
 
 ## Vote Values
+
+The contract accepts a `uint8` value for each vote.
+
+- `0` means `Build More`
+- `1` means `Ship Faster`
+
+Any value greater than `1` is rejected by the contract.
+
+## Getting Started
