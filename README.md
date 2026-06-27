@@ -128,3 +128,14 @@ The contract accepts a `uint8` value for each vote.
 Any value greater than `1` is rejected by the contract.
 
 ## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/EvelynHarrington1/base-tiny-poll.git
+cd base-tiny-poll
+```
+
+Install dependencies:
+
+```bash
