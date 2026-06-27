@@ -77,3 +77,13 @@ NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX=0x...
 `NEXT_PUBLIC_BASE_BUILDER_CODE` stores the readable Base Builder Code.
 
 `NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX` stores the ERC-8021 encoded suffix used in the Wagmi configuration and on every explicit `writeContract` call.
+
+The `base:app_id` value for Base verification is located in `app/layout.tsx`. Replace the placeholder value before completing verification.
+
+## Contract
+
+The poll contract is intentionally small and focused.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
