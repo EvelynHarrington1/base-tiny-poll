@@ -109,3 +109,13 @@ contract BaseTinyPoll {
             if (vote == 0) {
                 buildMoreVotes += 1;
             } else {
+                shipFasterVotes += 1;
+            }
+        }
+
+        emit VoteCast(msg.sender, vote, userVotes[msg.sender], totalVotes);
+    }
+}
+```
+
+## Vote Values
