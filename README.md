@@ -159,3 +159,13 @@ npm run dev
 ```
 
 Open the local URL shown in your terminal to view the app.
+
+## Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Usage
