@@ -57,3 +57,14 @@ The wallet menu exposes:
 ## Environment Variables
 
 For local development, copy the example environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+Then set the following values in `.env.local`:
+
+```bash
+NEXT_PUBLIC_POLL_CONTRACT_ADDRESS=0x...
+NEXT_PUBLIC_BASE_BUILDER_CODE=bc_j6yfi83r
+NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX=0x...
