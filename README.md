@@ -132,3 +132,15 @@ cp .env.example .env.local
 Then update `.env.local` with the required values:
 
 ```bash
+NEXT_PUBLIC_POLL_CONTRACT_ADDRESS=0x...
+NEXT_PUBLIC_BASE_BUILDER_CODE=bc_j6yfi83r
+NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX=0x...
+```
+
+### Environment Variable Reference
+
+`NEXT_PUBLIC_POLL_CONTRACT_ADDRESS` should be set to the deployed `BaseTinyPoll` contract address.
+
+`NEXT_PUBLIC_BASE_BUILDER_CODE` stores the readable Base Builder Code.
+
+`NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX` stores the ERC-8021 encoded suffix used in the Wagmi configuration and on every explicit `writeContract` call.
