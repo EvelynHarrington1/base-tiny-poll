@@ -177,3 +177,14 @@ Update `.env.local` with the required contract and Base Builder values.
 Start the local development server:
 
 ```bash
+npm run dev
+```
+
+Open the local URL shown in your terminal to view the app.
+
+## Production Build
+
+Create a production build:
+
+```bash
+npm run build
