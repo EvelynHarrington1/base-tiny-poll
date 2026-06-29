@@ -32,3 +32,14 @@ The smart contract records the latest vote for each user, the number of votes ea
 - Lightweight user interface
 - Next.js App Router structure
 - TypeScript source code
+- Tailwind CSS styling
+- Small, easy-to-review Solidity contract
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Wagmi
+- Viem
+- Tailwind CSS
+- Solidity
