@@ -19,3 +19,16 @@ The frontend is built with Next.js and TypeScript.
 Styling is handled with Tailwind CSS.
 
 Blockchain reads and writes are handled through Wagmi and Viem.
+
+The smart contract records the latest vote for each user, the number of votes each user has cast, and the overall totals for each poll option.
+
+## Features
+
+- Onchain voting on Base
+- Two poll options: `Build More` and `Ship Faster`
+- Repeat voting by the same user
+- Wallet connection through selected Wagmi connectors
+- Contract-read vote totals
+- Lightweight user interface
+- Next.js App Router structure
+- TypeScript source code
