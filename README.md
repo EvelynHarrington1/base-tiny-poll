@@ -9,3 +9,13 @@ Voting is intentionally simple. Each vote is written to the contract, and the sa
 ## Repository
 
 https://github.com/EvelynHarrington1/base-tiny-poll.git
+
+## Overview
+
+BaseTinyPoll is a minimal Base-focused polling app.
+
+The frontend is built with Next.js and TypeScript.
+
+Styling is handled with Tailwind CSS.
+
+Blockchain reads and writes are handled through Wagmi and Viem.
