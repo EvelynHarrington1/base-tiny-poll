@@ -188,3 +188,15 @@ Create a production build:
 
 ```bash
 npm run build
+```
+
+## Usage
+
+1. Start the app locally or open the deployed app.
+2. Connect a supported wallet.
+3. Choose either `Build More` or `Ship Faster`.
+4. Confirm the transaction in your wallet.
+5. Wait for the vote to be recorded onchain.
+6. View the updated poll totals in the app.
+
+## Scripts
