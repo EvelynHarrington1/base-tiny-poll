@@ -99,3 +99,14 @@ contract BaseTinyPoll {
     uint256 public totalVotes;
 
     event VoteCast(address indexed user, uint8 vote, uint256 userVotes, uint256 totalVotes);
+
+    function castVote(uint8 vote) external {
+        require(vote < 2, "Invalid vote");
+
+        latestVote[msg.sender] = vote;
+
+        unchecked {
+            userVotes[msg.sender] += 1;
+            totalVotes += 1;
+
+            if (vote == 0) {
