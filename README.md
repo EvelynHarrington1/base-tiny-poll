@@ -210,3 +210,15 @@ npm run build
 ```
 
 ## Project Notes
+
+- The app is designed for Base.
+- Voting is not limited to one vote per user.
+- The latest vote for each user is stored separately from the total number of votes they have cast.
+- Vote totals are read from the contract.
+- The contract rejects invalid vote values.
+- The ERC-8021 encoded suffix is included in the Wagmi configuration and explicit contract writes.
+- Placeholder configuration values should be replaced before using the app outside local development.
+
+## License
+
+No license information was provided in the original project README.
