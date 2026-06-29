@@ -65,3 +65,14 @@ The poll has two choices:
 - `Ship Faster`
 
 The contract expects each vote as a `uint8`.
+
+| Vote value | Meaning |
+| --- | --- |
+| `0` | `Build More` |
+| `1` | `Ship Faster` |
+
+Any value greater than `1` is rejected by the contract.
+
+## Smart Contract
+
+The poll contract is intentionally small and focused.
