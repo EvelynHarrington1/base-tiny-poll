@@ -76,3 +76,15 @@ Any value greater than `1` is rejected by the contract.
 ## Smart Contract
 
 The poll contract is intentionally small and focused.
+
+It stores:
+
+- Each user's latest vote
+- Each user's total number of votes
+- Total votes for `Build More`
+- Total votes for `Ship Faster`
+- Overall total votes
+
+The contract emits a `VoteCast` event whenever a vote is recorded.
+
+```solidity
