@@ -120,3 +120,15 @@ contract BaseTinyPoll {
     }
 }
 ```
+
+## Environment Variables
+
+For local development, copy the example environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+Then update `.env.local` with the required values:
+
+```bash
