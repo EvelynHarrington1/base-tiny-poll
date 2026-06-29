@@ -144,3 +144,14 @@ NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX=0x...
 `NEXT_PUBLIC_BASE_BUILDER_CODE` stores the readable Base Builder Code.
 
 `NEXT_PUBLIC_BASE_BUILDER_DATA_SUFFIX` stores the ERC-8021 encoded suffix used in the Wagmi configuration and on every explicit `writeContract` call.
+
+The `base:app_id` value for Base verification is located in `app/layout.tsx`.
+
+Replace the placeholder `base:app_id` value before completing verification.
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/EvelynHarrington1/base-tiny-poll.git
