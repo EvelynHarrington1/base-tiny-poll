@@ -54,3 +54,14 @@ The app uses the following Wagmi connectors:
 The wallet menu includes:
 
 - Coinbase Wallet
+- MetaMask
+- OKX
+
+## Poll Options
+
+The poll has two choices:
+
+- `Build More`
+- `Ship Faster`
+
+The contract expects each vote as a `uint8`.
