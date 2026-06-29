@@ -155,3 +155,13 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/EvelynHarrington1/base-tiny-poll.git
+cd base-tiny-poll
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create your local environment file:
