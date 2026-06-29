@@ -43,3 +43,14 @@ The smart contract records the latest vote for each user, the number of votes ea
 - Viem
 - Tailwind CSS
 - Solidity
+
+## Supported Wallet Options
+
+The app uses the following Wagmi connectors:
+
+- `coinbaseWallet`
+- `injected`
+
+The wallet menu includes:
+
+- Coinbase Wallet
